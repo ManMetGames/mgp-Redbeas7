@@ -49,6 +49,24 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* MouseLookAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* DashAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement Mechanics")
+	float DashStrength = 2500.0f;
+
+	UPROPERTY(visibleAnywhere, BlueprintReadOnly, Category = "Movement Mechanics")
+	bool bIsClimbing = "false";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement Mechanics")
+	float ClimbTraceDistance = 60.0f;
+
+	virtual void Tick(float DeltaTime) override;
+	void Dash();
+	void CheckForWall();
+	void StopClimbing();
+	void DoJump(); //function used to replace default jump with the rest of the custom movement system
+
 public:
 
 	/** Constructor */
