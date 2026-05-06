@@ -56,12 +56,11 @@ protected:
 	float DashStrength = 2500.0f;
 
 	UPROPERTY(visibleAnywhere, BlueprintReadOnly, Category = "Movement Mechanics")
-	bool bIsClimbing = "false";
+	bool bIsClimbing = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement Mechanics")
 	float ClimbTraceDistance = 60.0f;
 
-	virtual void Tick(float DeltaTime) override;
 	void Dash();
 	void CheckForWall();
 	void StopClimbing();
