@@ -2,26 +2,24 @@
 
 #pragma once
 
-#pragma once
-
 #include "CoreMinimal.h"
 #include "PowerupBases.h" 
-#include "SpeedPowerups.generated.h"
+#include "JumpPowerup.generated.h"
 
-UCLASS() // <-- Added this!
-class MGP_2526_API ASpeedPowerups : public APowerupBases // <-- Added the 'A' prefix!
+UCLASS()
+class MGP_2526_API AJumpPowerup : public APowerupBases
 {
 	GENERATED_BODY()
 
 public:
-	ASpeedPowerups(); // <-- Added the 'A' prefix here too!
+	AJumpPowerup();
 
 protected:
 	virtual void ApplyPowerupEffect() override;
 	virtual void RemovePowerupEffect() override;
 
 	UPROPERTY(EditAnywhere, Category = "Powerup Settings")
-	float BoostedSpeed;
+	float BoostedJumpZ;
 
-	float OriginalSpeed;
+	float OriginalJumpZ;
 };
