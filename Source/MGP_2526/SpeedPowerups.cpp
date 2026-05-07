@@ -5,14 +5,12 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
-// Added the 'A' prefixes here
 ASpeedPowerups::ASpeedPowerups()
 {
 	BoostedSpeed = 1000.f;
 	OriginalSpeed = 0.f;
 }
 
-// Added the 'A' prefix here
 void ASpeedPowerups::ApplyPowerupEffect()
 {
 	if (TargetCharacter && TargetCharacter->GetCharacterMovement())
@@ -22,7 +20,6 @@ void ASpeedPowerups::ApplyPowerupEffect()
 	}
 }
 
-// Added the 'A' prefix here
 void ASpeedPowerups::RemovePowerupEffect()
 {
 	if (TargetCharacter && TargetCharacter->GetCharacterMovement())

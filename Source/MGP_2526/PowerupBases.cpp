@@ -7,7 +7,6 @@
 #include "GameFramework/Character.h"
 #include "TimerManager.h"
 
-// Notice the 'A' before PowerupBases!
 APowerupBases::APowerupBases()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -16,17 +15,16 @@ APowerupBases::APowerupBases()
 	RootComponent = CollisionSphere;
 	CollisionSphere->SetSphereRadius(50.f);
 
-	// Bind the overlap event
 	CollisionSphere->OnComponentBeginOverlap.AddDynamic(this, &APowerupBases::OnOverlapBegin);
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->SetupAttachment(RootComponent);
-	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision); // Mesh shouldn't block, only the sphere
+	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 	PowerupDuration = 5.0f; // Default duration is 5 seconds
 }
 
-// Notice the exact spelling of OnOverlapBegin and UPrimitiveComponent
+
 void APowerupBases::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	TargetCharacter = Cast<ACharacter>(OtherActor);
@@ -48,13 +46,13 @@ void APowerupBases::ApplyPowerupEffect()
 
 void APowerupBases::RemovePowerupEffect()
 {
-	// Once the effect is removed, destroy the actor so it doesn't take up memory
+	// Once the effect is removed, destroy
 	Destroy();
 }
 
 void APowerupBases::HideAndDisable()
 {
-	// Hide the mesh
+	// Hides the mesh
 	MeshComp->SetVisibility(false);
 
 	// Disable collision so it can't be picked up again while active
