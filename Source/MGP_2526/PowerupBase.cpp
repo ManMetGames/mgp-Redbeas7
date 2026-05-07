@@ -1,0 +1,12 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "PowerupBase.h"
+
+PowerupBase::PowerupBase()
+{
+}
+
+PowerupBase::~PowerupBase()
+{
+}
